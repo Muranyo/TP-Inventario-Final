@@ -1,0 +1,136 @@
+
+
+<div class="jumbotron " *ngIf="_service.faceg!=null">
+    <h1 class="display-4 text-center">Factura:</h1>
+    <h2 class="display-4 text-center">{{_service.faceg.tipo}}</h2>
+    <br>
+    <br>
+    <strong>Numero Correlativo :{{_service.faceg.num_correlativo}}</strong>
+    <br>
+    <strong>Punto de venta :{{_service.faceg.pto_venta}}</strong>
+    <br>
+    <br>
+    <strong>Cliente :{{_service.faceg.clinomape}}</strong>
+    <br>
+    <strong>Direccion cliente :{{_service.faceg.clidir}}</strong>
+    <br>
+    <strong>Cuil cliente :{{_service.faceg.clicuil}}</strong>
+    <br>
+    <br>
+
+    <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Rubro</th>
+                <th scope="col">Precio de venta Unitario</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Iva</th>
+                <th scope="col">Precio de venta total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let art of prodseg'>
+                <th scope="row">{{art.codigo}}</th>
+                <td>{{art.nombre}}</td>
+                <td>{{art.descripcion}}</td>
+                <td>{{art.rubro}}</td>
+                <td>{{art.precio_de_venta}}</td>
+                <td>{{art.cantidad}}</td>
+                <td>{{art.iva}}</td>
+                <td>{{art.precio_prods}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+    <br>
+    <br>
+    <strong>Subtotal :{{_service.faceg.total_comprado}}</strong>
+    <br>
+    <br>
+    <strong>Fecha :{{_service.faceg.fecha}}</strong>
+    <br>
+    <div *ngIf="_service.faceg.tipo=='A'">
+      <br>
+       <strong>Total Iva 21%:$ {{iva21}}:</strong>
+       <br>
+       <strong>Total Iva 10.5%:$ {{iva10}} :</strong>
+    </div>
+    <br>
+    <strong>Total:$ {{Total}} :</strong>
+    <br>
+    <td><button type="button" (click)="confirmar()" class="btn btn-success">Aceptar</button></td>
+</div>
+
+
+<div class="jumbotron " *ngIf="_service.facing!=null">
+    <h1 class="display-4 text-center">Factura:</h1>
+    <h2 class="display-4 text-center">{{_service.facing.tipo}}</h2>
+    <br>
+    <br>
+    <strong>Numero Correlativo :{{_service.facing.num_correlativo}}</strong>
+    <br>
+    <strong>Punto de venta :{{_service.facing.pto_venta}}</strong>
+    <br>
+    <br>
+    <strong>Proveedor :{{_service.facing.provnom}}</strong>
+    <br>
+    <strong>Direccion proveedor :{{_service.facing.provdir}}</strong>
+    <br>
+    <strong>Cuit proveedor :{{_service.facing.provcuit}}</strong>
+    <br>
+    <br>
+
+
+
+    <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Rubro</th>
+                <th scope="col">Precio de compra</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Iva</th>
+                <th scope="col">Precio de compra total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let art of prodsing'>
+                <th scope="row">{{art.codigo}}</th>
+                <td>{{art.nombre}}</td>
+                <td>{{art.descripcion}}</td>
+                <td>{{art.rubro}}</td>
+                <td>{{art.precio_de_compra}}</td>
+                <td>{{art.cantidad}}</td>
+                <td>{{art.iva}}</td>
+                <td>{{art.precio_prods}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+    <br>
+    <br>
+    <strong>Subtotal :{{_service.facing.total_comprado}}</strong>
+    <br>
+    <br>
+    <strong>Fecha :{{_service.facing.fecha}}</strong>
+    <br>
+    <div *ngIf="_service.facing.tipo=='A'">
+      <br>
+       <strong>Total Iva 21%:$ {{iva21}}:</strong>
+       <br>
+       <strong>Total Iva 10.5%:$ {{iva10}} :</strong>
+    </div>
+    <br>
+    <strong>Total:$ {{Total}} :</strong>
+    <br>
+    <td><button type="button" (click)="confirmar()" class="btn btn-success">Aceptar</button></td>
+</div>

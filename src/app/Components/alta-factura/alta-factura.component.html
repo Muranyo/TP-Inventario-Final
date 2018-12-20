@@ -1,0 +1,136 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="#">TP -FINAL</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link " routerLink="/AltaArt">Alta Articulo<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/BajaArt">Baja Articulo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/ListArt">Modif Articulo</a>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link" routerLink="/AltaCli">Alta Cliente</a>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link" routerLink="/BajaCli">Baja Cliente</a>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link " routerLink="/ListCli">Modif Cliente<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" routerLink="/AltaProv">Alta Proveedor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/BajaProv">Baja Proveedor</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" routerLink="/ListProv">Modif Proveedor</a>
+        </li>
+      <li class="nav-item  ">
+        <a class="nav-link" routerLink="/AltaFacIng">Comprar</a>
+    </li>
+    <li class="nav-item active ">
+      <a class="nav-link" routerLink="/AltaFac">Vender</a>
+  </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="form-row">
+    <div class="form-group col-md-2">
+        <label for="inputState">TIPO de factura</label>
+        <select id="inputState" [(ngModel)]="tipo" class="form-control">
+            <option selected [value]="tipo">{{tipo}}</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="inputState">Numero correlativo</label>
+        <input type="text" class="form-control" id="inputImg" placeholder="..." name="inputImg" [(ngModel)]="fac.num_correlativo">
+    </div>
+</div>
+
+
+<div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputState">Cliente</label>
+        <select id="inputState" [(ngModel)]="id_client" class="form-control">
+          <option selected  *ngFor="let cli of _serviceC.clientes" [value]="cli.id">{{cli.nombre}}</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputState">Punto de venta</label>
+        <input type="text" class="form-control" id="inputImg" placeholder="..." name="inputImg" [(ngModel)]="fac.pto_venta">
+    </div>
+</div>
+
+
+<div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="inputState">Articulos</label>
+      <select id="inputState" [(ngModel)]="id_art_select" class="form-control">
+        <option selected  *ngFor="let art of _serviceA.articulos" [value]="art.id">{{art.nombre}}</option>
+      </select>
+  </div>
+  <div class="form-group col-md-2">
+      <label for="inputState">Cantida</label>
+    <input type="text" class="form-control" id="inputImg" placeholder="..." name="inputImg" [(ngModel)]="cant" >
+  </div>
+
+  <div class="form-group col-md-2">
+
+    <label for="inputState">Iva %</label>
+    <select id="inputState" [(ngModel)]="iva" class="form-control">
+        <option selected [value]="iva">{{iva}}</option>
+        <option>0</option>
+        <option>10.5</option>
+        <option>21</option>
+      </select>
+</div>
+
+</div>
+<td><button type="button" class="btn btn-success" (click)="agregarArt()">Agregar</button></td>
+
+
+
+
+
+
+<br>
+<br>
+<form action="/action_page.php">
+  Fecha: <input type="date" name="bday" [(ngModel)]="fac.fecha">
+</form>
+
+<div class="form-row">
+    <div class="form-group col-md-2">
+        <label for="inputState">Total comprado:</label>
+        <p>{{this.fac.total_comprado}}</p>
+    </div>
+</div>
+
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Productos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let art of art_agregados_mostrar'>
+          <td>{{art}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+<button type="button" class="btn btn-success" (click)="confirmFactura()">Crear Factura</button>
+
