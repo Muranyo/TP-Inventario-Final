@@ -1,4 +1,18 @@
-# TPFinal
+TP Final de inventario y stock. 
+Para ejecutar, descargar los archivos del repositorio
+descomprimir la carpeta SERVER.rar (el cuál contiene el servidor)
+ejecutar en un cmd npm install en la carpeta root, tanto como en la carpeta SERVER.
+
+-Para configurar el servidor con la base de datos, debe ingresar al archivo index.js y modificar donde dice "nombre_base_de_datos", siguiente campo es el usuario de postgres, el siguiente la password. 
+Una vez configurado, 
+ejecutamos el servidor abriendo una consola en la carpeta SERVER y corriendo el comando "node index.js"
+para ejecutar la app, abrimos una consola en la carpeta raiz y corremos el comando "ng serve --open".
+
+
+Este TP fue realizado por los alumnos: Degano, Franco (https://github.com/FrancoDegno) y Lopez Rezett, Nicolás. (https://github.com/Muranyo)
+
+
+# TP Inventario Final
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
